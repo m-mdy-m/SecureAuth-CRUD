@@ -87,3 +87,26 @@ exports.postResetPass = (req, res) => {
     res.redirect('/')
   });
 };
+exports.getNePass = async (req,res) =>{
+    const token = req.params.token
+    const user = await User.findOne({rstT : token , rstT_Ex : {$gt : Date.now()}})
+
+    res.render('auth/new-password',{
+        title : "New pass",
+        path:req.path,
+        userId  : user._id,
+        passToken : token
+    })
+}
+exports.postNewPass = async (req,res)=>{
+    const newPas = req.body.password
+    const userId = req.body.userId
+    const psT = req.body.passToken
+    const user = await User.findOne({rstT: psT , rstT_Ex: {$gt : Date.now()} , _id : userId})
+    const hashPas = bcryptjs.hash(newPas , 8)
+    user.password = hashPas
+    user.rstT = undefined
+    user.rstT_Ex = undefined
+    await user.save()
+    res.redirect('/login')
+}
