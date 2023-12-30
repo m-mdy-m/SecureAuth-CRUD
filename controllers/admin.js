@@ -3,6 +3,7 @@ exports.getAddProducts = (req, res) => {
   res.render("admin/add-product", {
     title: "add-product",
     path: req.path,
+    editing:false
   });
 };
 exports.postAddProduct = async (req, res) => {
