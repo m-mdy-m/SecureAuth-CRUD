@@ -1,0 +1,24 @@
+<%- include('../includes/base.ejs') %>
+<%- include('../includes/header.ejs') %>
+<main>
+    <form action="/signup" method="POST" class="form">
+        <div class="wrapperInput">
+            <label for="username">username</label>
+            <input type="text" name="username" >
+        </div>
+        <div class="wrapperInput">
+            <label for="email">email</label>
+            <input type="email" name="email" >
+        </div>
+        <div class="wrapperInput">
+            <label for="password">password</label>
+            <input type="text" name="password">
+        </div>
+        <div class="wrapperBtn">
+            <button type="submit">signup</button>
+        </div>
+    </form>
+</main>
+<%- include('../includes/end.ejs') %>
+
+    
