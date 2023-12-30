@@ -13,3 +13,13 @@ exports.postAddProduct = async (req, res) => {
   await newP.save();
   res.redirect("/");
 };
+// === admin route
+
+exports.getAdmin = async (req,res)=>{
+  const products = await Product.find()
+  res.render('admin/dashboard',{
+    title : 'dashboard',
+    path : req.path,
+    products
+  })
+}
