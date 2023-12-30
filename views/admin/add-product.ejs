@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> <%= title %> </title>
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <nav class="navigation">
+          <div class="wrapper">
+            <li class="navigation__list">
+              <a href="/" class="navigation__list-link">HOME</a>
+            </li>
+            <li class="navigation__list">
+              <a href="/add-product" class="navigation__list-link">add product</a>
+            </li>
+            <li class="navigation__list">
+              <a href="/admin" class="navigation__list-link">admin</a>
+            </li>
+          </div>
+          <div class="wrapper">
+            <li class="navigation__list">
+              <a href="/signup" class="navigation__list-link">signup</a>
+            </li>
+            <li class="navigation__list">
+              <a href="/login" class="navigation__list-link">login</a>
+            </li>
+          </div>
+        </nav>
+      </header>
+      <main></main>
+    </div>
+  </body>
 </html>
