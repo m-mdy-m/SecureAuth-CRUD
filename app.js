@@ -9,6 +9,9 @@ app.set('views', 'views')
 app.use(bodyParser.urlencoded({extended : false}))
 app.use(express.static(path.join(__dirname,'public')))
 
+const adminR = require('./routes/admin')
+app.use(adminR)
+
 
 const start = async ()=>{
     try{
