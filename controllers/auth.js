@@ -56,7 +56,7 @@ exports.postLogin = async (req, res) => {
 exports.postLogOut = async (req, res) => {
   await req.session.destroy();
   console.log("delete session");
-  res.redirect("/");
+  return res.redirect("/");
 };
 exports.getResetPass = (req, res) => {
   res.render("auth/reset", {
@@ -76,7 +76,7 @@ exports.postResetPass = (req, res) => {
       return res.redirect("/");
     }
     user.rstT = token;
-    user.rstT_Ex = Date.now() + 3600;
+    user.rstT_Ex = Date.now() + 3600000;
     await user.save();
     await transport.sendMail({
       form: "mahdimamashli1383@gmail.com",
@@ -84,29 +84,35 @@ exports.postResetPass = (req, res) => {
       subject: "Reset Password",
       html: `<a href="http://localhost:3000/reset/${token}/">Click Here To Reset Your PassWord`,
     });
-    res.redirect('/')
+    res.redirect("/");
   });
 };
-exports.getNePass = async (req,res) =>{
-    const token = req.params.token
-    const user = await User.findOne({rstT : token , rstT_Ex : {$gt : Date.now()}})
-
-    res.render('auth/new-password',{
-        title : "New pass",
-        path:req.path,
-        userId  : user._id,
-        passToken : token
-    })
-}
-exports.postNewPass = async (req,res)=>{
-    const newPas = req.body.password
-    const userId = req.body.userId
-    const psT = req.body.passToken
-    const user = await User.findOne({rstT: psT , rstT_Ex: {$gt : Date.now()} , _id : userId})
-    const hashPas = bcryptjs.hash(newPas , 8)
-    user.password = hashPas
-    user.rstT = undefined
-    user.rstT_Ex = undefined
-    await user.save()
-    res.redirect('/login')
-}
+exports.getNePass = async (req, res) => {
+  const token = req.params.token;
+  const user = await User.findOne({
+    rstT: token,
+    rstT_Ex: { $gt: Date.now() },
+  });
+  res.render("auth/new-password", {
+    title: "New pass",
+    path: req.path,
+    userId: user._id.toString(),
+    passToken: token,
+  });
+};
+exports.postNewPass = async (req, res) => {
+  const newPas = req.body.password;
+  const userId = req.body.userId;
+  const psT = req.body.passToken;
+  const user = await User.findOne({
+    rstT: psT,
+    rstT_Ex: { $gt: Date.now() },
+    _id: userId,
+  });
+  const hashPas = bcryptjs.hash(newPas, 8);
+  user.password = hashPas;
+  user.rstT = undefined;
+  user.rstT_Ex = undefined;
+  await user.save();
+  res.redirect("/login");
+};

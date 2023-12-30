@@ -9,7 +9,7 @@ exports.getAddProducts = (req, res) => {
 exports.postAddProduct = async (req, res) => {
   const title = req.body.title;
   const price = req.body.price;
-  const newP = await Product.create({ title, price });
+  const newP = await Product.create({ title, price,userId: req.session.user, });
   await newP.save();
   res.redirect("/");
 };
@@ -38,6 +38,7 @@ exports.getEdit = async (req, res) => {
     path: req.path,
     editing,
     product,
+    
   });
 };
 exports.postEdit = async (req, res) => {
