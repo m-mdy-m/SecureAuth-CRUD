@@ -13,14 +13,23 @@
             <a href="/admin" class="navigation__list-link <%= path==='/admin'? "active":"" %>">admin</a>
           </li>
           <% } %>
+
         </div>
         <div class="wrapper">
-          <li class="navigation__list">
-            <a href="/signup" class="navigation__list-link <%= path==='/signup'? "active":"" %>">signup</a>
-          </li>
-          <li class="navigation__list">
-            <a href="/login" class="navigation__list-link <%= path==='/login'? "active":"" %>">login</a>
-          </li>
+          <% if(isAuth){ %>
+            <form action="/logout" method="post">
+              <li class="navigation__list">
+                <button type="submit">logout</button>
+              </li>
+            </form>
+          <% }else{ %>
+            <li class="navigation__list">
+              <a href="/signup" class="navigation__list-link <%= path==='/signup'? "active":"" %>">signup</a>
+            </li>
+            <li class="navigation__list">
+              <a href="/login" class="navigation__list-link <%= path==='/login'? "active":"" %>">login</a>
+            </li>
+            <% } %>
         </div>
       </nav>
     </header>

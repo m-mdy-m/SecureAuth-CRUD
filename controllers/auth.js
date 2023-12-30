@@ -43,3 +43,8 @@ exports.postLogin = async (req, res) => {
   await req.session.save();
   res.redirect("/");
 };
+exports.postLogOut = async (req, res) => {
+  await req.session.destroy();
+  console.log("delete session");
+  res.redirect("/");
+};

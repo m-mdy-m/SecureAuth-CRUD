@@ -7,4 +7,6 @@ router.post('/signup', authC.postSignUp)
 
 router.get('/login', authC.getLogin)
 router.post('/login', authC.postLogin)
+
+router.post('/logout', authC.postLogOut)
 module.exports = router
