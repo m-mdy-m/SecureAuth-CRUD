@@ -4,4 +4,8 @@ const adminC = require('../controllers/admin')
 router.get('/add-product', adminC.getAddProducts)
 router.post('/add-product', adminC.postAddProduct)
 
+// === admin route
+
+router.get('/admin', adminC.getAdmin)
+
 module.exports = router
