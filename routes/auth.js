@@ -6,4 +6,5 @@ router.get('/signup', authC.getSignup)
 router.post('/signup', authC.postSignUp)
 
 router.get('/login', authC.getLogin)
+router.post('/login', authC.postLogin)
 module.exports = router

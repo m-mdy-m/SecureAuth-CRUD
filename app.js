@@ -24,9 +24,10 @@ app.use(
     store,
   })
 );
-// app.use(async (req, res) => {
-//   res.locals.isAuth = req.session.isLogin;
-// });
+app.use((req, res,nxt) => {
+  res.locals.isAuth = req.session.isLogin;
+  nxt()
+});
 const adminR = require("./routes/admin");
 const shopR = require("./routes/shop");
 const authR = require("./routes/auth");
