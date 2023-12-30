@@ -6,7 +6,8 @@ const path = require("path");
 const session = require("express-session");
 const connectMongoDbSession = require("connect-mongodb-session")(session);
 const URL = "mongodb://localhost:27017/Secure-CRUD";
-
+const csurf = require("csurf");
+const csrfProtection = csurf();
 app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -24,9 +25,11 @@ app.use(
     store,
   })
 );
-app.use((req, res,nxt) => {
+app.use(csrfProtection);
+app.use((req, res, nxt) => {
   res.locals.isAuth = req.session.isLogin;
-  nxt()
+  res.locals.csrfToken = req.csrfToken();
+  nxt();
 });
 const adminR = require("./routes/admin");
 const shopR = require("./routes/shop");

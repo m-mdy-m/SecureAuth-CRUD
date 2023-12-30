@@ -16,6 +16,7 @@
        <% if (editing) { %>
             <input type="hidden" name="prodId" value="<%= product._id %>">
        <% } %>
+       <input type="hidden" name="_csrf" value="<%= csrfToken %>">
     </form>
 </main>
 <%- include('../includes/end.ejs') %>

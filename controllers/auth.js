@@ -48,3 +48,9 @@ exports.postLogOut = async (req, res) => {
   console.log("delete session");
   res.redirect("/");
 };
+exports.getResetPass = (req,res)=>{
+    res.render('auth/reset',{
+        title:'resetPass',
+        path:req.path
+    })
+}

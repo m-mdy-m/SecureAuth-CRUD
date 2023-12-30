@@ -17,7 +17,11 @@
         <div class="wrapperBtn">
             <button type="submit">LOGIN</button>
         </div>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
     </form>
+    <div>
+        <a href="/reset">RESET PASSWORD</a>
+    </div>
 </main>
 <%- include('../includes/end.ejs') %>
 

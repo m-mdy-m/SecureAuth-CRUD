@@ -8,4 +8,7 @@ router.get('/login', authC.getLogin)
 router.post('/login', authC.postLogin)
 
 router.post('/logout', authC.postLogOut)
+
+
+router.get('/rest', authC.getResetPass)
 module.exports = router
