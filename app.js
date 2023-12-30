@@ -11,6 +11,8 @@ app.use(express.static(path.join(__dirname,'public')))
 
 const adminR = require('./routes/admin')
 const shopR = require('./routes/shop')
+const authR = require('./routes/auth')
+app.use(authR)
 app.use(adminR)
 app.use(shopR)
 
