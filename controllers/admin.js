@@ -40,3 +40,14 @@ exports.getEdit = async (req, res) => {
     product,
   });
 };
+exports.postEdit = async (req, res) => {
+  try {
+    const id = req.body.prodId;
+    const title = req.body.title;
+    const price = req.body.price;
+    await Product.findByIdAndUpdate(id, { title, price });
+    res.redirect("/");
+  } catch (err) {
+    console.log("err");
+  }
+};
