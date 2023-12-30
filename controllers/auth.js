@@ -27,3 +27,20 @@ exports.getLogin = async (req,res)=>{
 
     })
 }
+exports.postLogin = async (req,res)=>{
+    const username = req.body.username;
+  const email = req.body.email;
+  const password = req.body.password;
+  let user = await User.findOne({email})
+  if(!user){
+    return res.redirect('/')
+  }
+    const machPass = await bcryptjs.compare(password, )
+    if(!machPass){
+        return res.redirect('/signup')
+    }
+    req.session.user = user
+    req.session.isLogin = true
+    await res.session.save()
+    res.redirect('/')
+}
