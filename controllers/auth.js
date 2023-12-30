@@ -10,7 +10,19 @@ exports.postSignUp = async (req, res) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
-  const user = await User.create({ username, email, password });
+  let user = await User.findOne({email})
+  if(user){
+    console.log('is user')
+    return res.redirect('/')
+  }
+  user = await User.create({ username, email, password });
   await user.save()
-  res.redirect('/')
+   res.redirect('/login')
 };
+exports.getLogin = async (req,res)=>{
+    res.render('auth/login', {
+        title : 'login',
+        path : req.path,
+        
+    })
+}
