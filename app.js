@@ -12,21 +12,21 @@ app.set("views", "views");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 const store = new connectMongoDbSession({
-    uri: URL,
-    collection: "session",
-  });
-  
-  app.use(
-    session({
-      secret: " secret",
-      resave: false,
-      saveUninitialized: false,
-      store,
-    })
-  );
-  app.use(async (req, res) => {
-    res.locals.isAuth = req.session.isLogin;
-  });
+  uri: URL,
+  collection: "session",
+});
+
+app.use(
+  session({
+    secret: " secret",
+    resave: false,
+    saveUninitialized: false,
+    store,
+  })
+);
+// app.use(async (req, res) => {
+//   res.locals.isAuth = req.session.isLogin;
+// });
 const adminR = require("./routes/admin");
 const shopR = require("./routes/shop");
 const authR = require("./routes/auth");

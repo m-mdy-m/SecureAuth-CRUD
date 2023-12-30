@@ -5,14 +5,12 @@
           <li class="navigation__list">
             <a href="/" class="navigation__list-link <%= path==='/'? "active":"" %>">HOME</a>
           </li>
-          <% if(isAuth){ %>
           <li class="navigation__list">
             <a href="/add-product" class="navigation__list-link <%= path==='/add-product'? "active":"" %>">add product</a>
           </li>
           <li class="navigation__list">
             <a href="/admin" class="navigation__list-link <%= path==='/admin'? "active":"" %>">admin</a>
           </li>
-          <% } %>
         </div>
         <div class="wrapper">
           <li class="navigation__list">
