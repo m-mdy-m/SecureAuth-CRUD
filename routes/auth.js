@@ -10,5 +10,6 @@ router.post('/login', authC.postLogin)
 router.post('/logout', authC.postLogOut)
 
 
-router.get('/rest', authC.getResetPass)
+router.get('/reset', authC.getResetPass)
+router.post('/reset', authC.postResetPass)
 module.exports = router
