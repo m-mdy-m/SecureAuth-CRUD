@@ -1,16 +1,16 @@
 <%- include('../includes/base.ejs') %>
 <%- include('../includes/header.ejs') %>
 <main>
-    <form action="<% if(editing){ %> edit-product <% }else{%> add-product <%} %>" method="POST">
-        <div>
+    <form action="<% if(editing){ %> edit-product <% }else{%> add-product <%} %>" method="POST" class="form">
+        <div class="wrapperInput">
             <label for="title">TITLE</label>
             <input type="text" name="title" value="<% if(editing){%> <% product.title %> <%} %>">
         </div>
-        <div>
+        <div class="wrapperInput">
             <label for="title">TITLE</label>
             <input type="text" name="title" value="<% if(editing){%> <% product.title %> <%} %>">
         </div>
-        <div>
+        <div class="wrapperInput">
             <button type="submit"><% if(editing){%>UPDATE<%}else{ %> ADD-PRODUCT <% } %></button>
         </div>
        <% if (editing) { %>

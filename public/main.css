@@ -2,3 +2,9 @@
 @import url("base.css");
 
 @import url("header.css");
+
+.form{
+    width: 250px;
+    height: 450px;
+    background-color: red;
+}
