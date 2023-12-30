@@ -56,3 +56,6 @@ label {
   box-shadow: 6px -6px 4px 1px #ccc;
   margin: 0 8px;
 }
+button{
+    cursor: pointer;
+}

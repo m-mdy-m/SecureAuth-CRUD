@@ -29,3 +29,12 @@ exports.postDelete = async (req,res)=>{
   await Product.findByIdAndDelete(id)
   res.redirect('/')
 }
+exports.getEdit = async (req,res)=>{
+  const editing = req.query.edit
+  const id = req.params.prodId
+  res.render('admin/add-product', {
+    title : 'edit',
+    path : req.path,
+    editing
+  })
+}
