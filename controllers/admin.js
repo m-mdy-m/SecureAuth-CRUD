@@ -9,14 +9,14 @@ exports.getAddProducts = (req, res) => {
 exports.postAddProduct = async (req, res) => {
   const title = req.body.title;
   const price = req.body.price;
-  const newP = await Product.create({ title, price,userId: req.session.user, });
+  const newP = await Product.create({ title, price, userId : req.session.user });
   await newP.save();
   res.redirect("/");
 };
 // === admin route
 
 exports.getAdmin = async (req, res) => {
-  const products = await Product.find();
+  const products = await Product.find({ userId: req.session.user._id });
   res.render("admin/dashboard", {
     title: "dashboard",
     path: req.path,
@@ -26,7 +26,7 @@ exports.getAdmin = async (req, res) => {
 
 exports.postDelete = async (req, res) => {
   const id = req.body.prodId;
-  await Product.findByIdAndDelete(id);
+  await Product.deleteOne({_id : id , userId : req.session.user._id})
   res.redirect("/");
 };
 exports.getEdit = async (req, res) => {
