@@ -1,0 +1,30 @@
+{
+  "name": "secureauth-crud",
+  "version": "1.0.0",
+  "description": "User-authenticated CRUD app ensuring secure product management & individual access control.",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m-mdy-m/SecureAuth-CRUD.git"
+  },
+  "keywords": [
+    "exress",
+    "nodejs",
+    "auth",
+    "ejs",
+    "csrf",
+    "mongoose",
+    "nodemailer",
+    "bcryptjs",
+    "mongoDb"
+  ],
+  "author": "mahdi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/m-mdy-m/SecureAuth-CRUD/issues"
+  },
+  "homepage": "https://github.com/m-mdy-m/SecureAuth-CRUD#readme"
+}
