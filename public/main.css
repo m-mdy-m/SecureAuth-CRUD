@@ -6,5 +6,37 @@
 .form{
     width: 250px;
     height: 450px;
-    background-color: red;
+    background-color: rgb(45, 5, 46);
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 8px;
+    align-items: center;
+    flex-direction: column;
+}
+.wrapperInput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.wrapperInput >*{
+    font-family: sans-serif;
+    color: rgb(31, 28, 28);
+    text-transform: uppercase;
+    border-radius: 12px;
+    padding: 4px;
+    outline: none;
+    border: none;
+}
+label{
+    color: whitesmoke !important;
+}
+.wrapperBtn >*{
+    font-family: sans-serif;
+    text-transform: uppercase;
+    border-radius: 12px;
+    padding: 4px;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }
