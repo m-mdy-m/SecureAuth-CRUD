@@ -10,7 +10,9 @@ app.use(bodyParser.urlencoded({extended : false}))
 app.use(express.static(path.join(__dirname,'public')))
 
 const adminR = require('./routes/admin')
+const shopR = require('./routes/shop')
 app.use(adminR)
+app.use(shopR)
 
 
 const start = async ()=>{
