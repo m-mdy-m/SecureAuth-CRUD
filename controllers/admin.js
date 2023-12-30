@@ -23,3 +23,9 @@ exports.getAdmin = async (req,res)=>{
     products
   })
 }
+
+exports.postDelete = async (req,res)=>{
+  const id = req.body.prodId
+  await Product.findByIdAndDelete(id)
+  res.redirect('/')
+}
