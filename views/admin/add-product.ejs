@@ -4,11 +4,11 @@
     <form action="<% if(editing){ %> edit-product <% }else{%> add-product <%} %>" method="POST" class="form">
         <div class="wrapperInput">
             <label for="title">TITLE</label>
-            <input type="text" name="title" value="<% if(editing){%> <% product.title %> <%} %>">
+            <input type="text" name="title" value="<% if(editing){%><%=product.title%><%} %>">
         </div>
         <div class="wrapperInput">
             <label for="price">PRICE</label>
-            <input type="number" name="price" value="<% if(editing){%> <% product.title %> <%} %>">
+            <input type="number" name="price" value="<% if(editing){%><%=product.price%><%} %>">
         </div>
         <div class="wrapperBtn">
             <button type="submit"><% if(editing){%>UPDATE<%}else{ %> ADD-PRODUCT <% } %></button>

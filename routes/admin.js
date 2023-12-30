@@ -11,4 +11,6 @@ router.get('/admin', adminC.getAdmin)
 router.post('/admin', adminC.postDelete)
 
 router.get('/edit-product/:prodId', adminC.getEdit)
+
+router.post('/edit-product', adminC.postEdit)
 module.exports = router
